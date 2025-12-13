@@ -57,8 +57,13 @@ Students struggling with abstract concepts like **quantum physics**, **organic c
 
 ### **5. Gamified Learning Experience**
 - 🏆 **XP System** - Earn points for every learning activity
-- 📈 **Progress Tracking** - Visual progress indicators
+- 📈 **Progress Tracking** - Visual progress indicators and level system
 - 🎯 **Adaptive Difficulty** - Content adjusts to your level
+- 🏅 **Achievement Badges** - Unlock badges for milestones (First Quiz, 7-Day Streak, etc.)
+- 🔥 **Streak Multipliers** - 2x XP at 7 days, 3x at 30 days
+- 🎉 **Level-Up Celebrations** - Confetti animation on leveling up
+- 🌙 **Dark Mode** - Study comfortably at night
+- 📊 **Personalized Recommendations** - AI-powered topic suggestions based on learning history
 
 ---
 
