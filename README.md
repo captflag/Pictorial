@@ -72,6 +72,13 @@ Students struggling with abstract concepts like **quantum physics**, **organic c
 - 📈 **Progress Analytics** - Charts and insights on learning patterns
 - 🔔 **Toast Notifications** - Real-time feedback on actions
 
+### **7. Study Enhancements**
+- 🔖 **Bookmarks** - Save topics with priority levels for later review
+- 🔊 **Text-to-Speech** - Listen to content with adjustable speed
+- 📖 **Reading Progress** - Track section completion with time estimates
+- 🔥 **Streak Tracking** - Visual weekly activity and XP multipliers
+- 🎯 **Focus Mode** - Distraction-free reading with timer and fullscreen
+
 ---
 
 ## ✨ Key Features
