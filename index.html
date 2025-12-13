@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pictorial - Visual AI Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6', // Violet
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
+              },
+              accent: {
+                50: '#ecfeff',
+                100: '#cffafe',
+                500: '#06b6d4', // Cyan
+                600: '#0891b2',
+              }
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spin-slow': 'spin 12s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f8fafc; /* Slate 50 */
+        color: #0f172a; /* Slate 900 */
+        background-image: 
+          radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+          radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%),
+          radial-gradient(circle at 50% 100%, rgba(236, 72, 153, 0.05) 0px, transparent 40%);
+        background-attachment: fixed;
+      }
+      
+      /* Light Glass Utilities */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+      }
+      
+      .glass-card {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      }
+
+      .glass-button {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        color: #334155;
+        transition: all 0.3s ease;
+      }
+      .glass-button:hover {
+        background: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -10px rgba(124, 58, 237, 0.15);
+        border-color: rgba(124, 58, 237, 0.2);
+        color: #7c3aed;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+         background: #cbd5e1;
+      }
+
+      /* 3D Animation Styles */
+      .scene-3d {
+        perspective: 1000px;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      .cube-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotate3d 20s infinite linear;
+      }
+      
+      .cube-face {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        left: 20px;
+        top: 20px;
+        background: rgba(139, 92, 246, 0.1); /* Brand 500 with low opacity */
+        border: 2px solid rgba(139, 92, 246, 0.3);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: rgba(139, 92, 246, 0.5);
+        font-size: 2rem;
+      }
+
+      .face-front  { transform: rotateY(0deg) translateZ(100px); }
+      .face-right  { transform: rotateY(90deg) translateZ(100px); }
+      .face-back   { transform: rotateY(180deg) translateZ(100px); }
+      .face-left   { transform: rotateY(-90deg) translateZ(100px); }
+      .face-top    { transform: rotateX(90deg) translateZ(100px); }
+      .face-bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+      .orbit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 1px dashed rgba(6, 182, 212, 0.3); /* Accent 500 */
+        border-radius: 50%;
+        transform-style: preserve-3d;
+        animation: spin-slow 15s linear infinite;
+      }
+      
+      .orbit-1 { width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; animation-duration: 25s; }
+      .orbit-2 { width: 450px; height: 450px; margin-top: -225px; margin-left: -225px; animation-duration: 35s; animation-direction: reverse; border-color: rgba(139, 92, 246, 0.2); }
+
+      @keyframes rotate3d {
+        0% { transform: rotateX(0deg) rotateY(0deg); }
+        100% { transform: rotateX(360deg) rotateY(360deg); }
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white !important;
+          background-image: none !important;
+          color: black !important;
+        }
+        .no-print, header, nav, button, .sidebar {
+          display: none !important;
+        }
+        .glass-panel, .glass-card {
+          background: white !important;
+          border: 1px solid #eee !important;
+          backdrop-filter: none !important;
+          color: black !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
