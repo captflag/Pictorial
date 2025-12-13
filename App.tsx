@@ -17,6 +17,8 @@ import { LoadingSpinner } from './components/LoadingSpinner';
 import { Confetti } from './components/Confetti';
 import { useDarkMode, DarkModeToggle } from './components/DarkModeToggle';
 import { SkeletonLoader } from './components/SkeletonLoader';
+import { MobileNav } from './components/MobileNav';
+import { OnboardingTour } from './components/OnboardingTour';
 import {
   Search,
   BookOpen,
@@ -618,6 +620,21 @@ const App: React.FC = () => {
           </div>
         )}
       </main>
+
+      {/* Mobile Bottom Navigation */}
+      <MobileNav
+        viewMode={viewMode}
+        hasData={!!data}
+        isLoggedIn={!!user}
+        onViewChange={setViewMode}
+        onHomeClick={() => { setData(null); setQuery(''); setViewMode(ViewMode.THEORY); }}
+      />
+
+      {/* Mobile nav spacer */}
+      <div className="h-20 lg:hidden" />
+
+      {/* Onboarding Tour for First-Time Users */}
+      <OnboardingTour />
     </div>
   );
 };
