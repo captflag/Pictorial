@@ -65,6 +65,13 @@ Students struggling with abstract concepts like **quantum physics**, **organic c
 - 🌙 **Dark Mode** - Study comfortably at night
 - 📊 **Personalized Recommendations** - AI-powered topic suggestions based on learning history
 
+### **6. Productivity Tools**
+- ⏱️ **Pomodoro Timer** - Focus sessions with configurable work/break intervals
+- 🃏 **Flashcards** - Spaced repetition with mastery tracking
+- ⌨️ **Keyboard Shortcuts** - Power user navigation (press `?` for help)
+- 📈 **Progress Analytics** - Charts and insights on learning patterns
+- 🔔 **Toast Notifications** - Real-time feedback on actions
+
 ---
 
 ## ✨ Key Features
